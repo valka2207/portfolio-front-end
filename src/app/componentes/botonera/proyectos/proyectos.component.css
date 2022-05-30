@@ -1,0 +1,29 @@
+#etiquetaProyecto{
+    background-color: rgb(63 63 63);
+    border-radius: 0.2rem;
+    font-family: 'Dosis', cursive;
+    font-size: 1.1rem;
+    color: whitesmoke;
+    text-align: center;
+    padding: 0.1rem;
+    box-shadow: black 0 0 0.2rem;
+    margin-bottom: 0.2rem;
+}
+#Arte-tab.active{
+    font-weight: 400;
+    background-color: rgba(0,0,0,0.7);
+}
+#Arte-tab{
+    color:white;
+    font-weight: 100;
+    background-color: rgba(0,0,0,0.3);
+}
+#programación-tab.active{
+    font-weight: 400;
+    background-color: rgba(0,0,0,0.7);
+}
+#programación-tab{
+    color:white;
+    font-weight: 100;
+    background-color: rgba(0,0,0,0.3);
+}

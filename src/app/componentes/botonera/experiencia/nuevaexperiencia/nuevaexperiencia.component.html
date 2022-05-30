@@ -1,0 +1,63 @@
+<div class="card">
+    <div class="row g-0">
+      <div class="col-md-3 d-flex justify-content-center align-items-center">
+        <img id="empresas" [src]="experiencia.url" alt="">
+      </div>
+      <div class="col-md-9">
+        <div class="d-flex justify-content-between card-header">
+          <h5 class="titulo">{{experiencia.empresa}}</h5> 
+          <div class="d-flex justify-content-end">
+          <button  type="button" class="btn btn-dark" data-bs-toggle="modal" attr.data-bs-target="#editExp{{experiencia.id}}" (click)="editarexperiencia()"><fa-icon [icon]="faEdit"></fa-icon>
+          </button>
+          <button (click)="eliminarexperiencia()" class="justify-self-end btn btn-light"><fa-icon [icon]="faEliminar"></fa-icon></button>
+        </div>
+        </div>
+         
+          <div class="card-body">
+            <h5 class="card-title subtitulo">{{experiencia.puesto}}</h5>
+            <p class="card-text contenido">{{experiencia.fechadeinicio}} - {{experiencia.fechadeegreso}}</p>
+            <p class="card-text contenido">{{experiencia.descripcion}}</p>                
+          </div>                  
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+<div class="modal fade" id="editExp{{experiencia.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Experiencia</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formulario">
+          <div class="mb-3">
+            <label class="form-label">Empresa</label>
+            <input type="text" class="form-control" formControlName="empresa">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Fecha de Inicio</label>
+            <input type="date" class="form-control" formControlName="fechadeinicio">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Fecha de Egreso</label>
+            <input type="date" class="form-control" formControlName="fechadeegreso">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Puesto</label>
+            <input type="text" class="form-control" formControlName="puesto">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <input type="text" class="form-control" formControlName="descripcion">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">URL del logo</label>
+            <input type="text" class="form-control" formControlName="url">
+          </div>       
+          <button type="submit" (click)="submitexperiencia()" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

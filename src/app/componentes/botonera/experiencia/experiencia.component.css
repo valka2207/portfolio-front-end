@@ -1,0 +1,12 @@
+
+#etiquetaExperiencia{
+    background-color: rgba(255,255,255, 0.9);
+    border-radius: 0.2rem;
+    font-family: 'Dosis';
+    font-size: 1.1rem;
+    color: black;
+    text-align: center;
+    padding: 0.1rem;
+    box-shadow: black 0 0 0.2rem;
+    margin-bottom: 0.2rem;
+}

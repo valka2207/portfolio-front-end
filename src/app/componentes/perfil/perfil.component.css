@@ -1,0 +1,18 @@
+#perfil{
+    grid-area: carta;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+    color: whitesmoke;
+    text-shadow: 0 0 0.2rem black;
+    padding-right:5rem;
+    padding-bottom:5rem;
+}
+#imagen-perfil{
+    max-width: 90%;
+    position:relative;
+    margin-top:1rem;
+    margin-left: 2em;
+    box-shadow: black 0 0 0.3rem;
+}

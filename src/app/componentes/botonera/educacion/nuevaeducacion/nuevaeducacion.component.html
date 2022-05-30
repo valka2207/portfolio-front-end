@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="row g-0">
+      <app-progreso-circular class="col-md-3" [valor]="educacion.porcentaje" [frente]="'gold'" [fondo]="'rgb(	255 228 181)'"></app-progreso-circular>
+      <div class="col-md-9">
+        <!-- agregadiv -->
+        <div class="d-flex justify-content-between card-header">
+          <h5 class="titulo">{{educacion.institucion}}</h5> 
+          <div class="d-flex justify-content-end">
+          <button  type="button" class="btn btn-dark" data-bs-toggle="modal" attr.data-bs-target="#editEdu{{educacion.id}}" (click)="editareducacion()"><fa-icon [icon]="faEdit"></fa-icon>
+          </button>
+          <button (click)="eliminareducacion()" class="justify-self-end btn btn-light"><fa-icon [icon]="faEliminar"></fa-icon></button>
+        </div>
+        </div>
+        <div class="card-body">
+          <p class="card-text contenido">{{educacion.fechadeinicio}} - {{educacion.fechadeegreso}}</p>
+          <p class="card-text">{{educacion.titulo}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="editEdu{{educacion.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Educacion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formulario">
+          <div class="mb-3">
+            <label class="form-label">Institucion</label>
+            <input type="text" class="form-control" formControlName="institucion">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Fecha de inicio</label>
+            <input type="date" class="form-control" formControlName="fechadeinicio">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Fecha de egreso</label>
+            <input type="date" class="form-control" formControlName="fechadeegreso">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Titulo</label>
+            <input type="text" class="form-control" formControlName="titulo">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Porcentaje</label>
+            <input type="number" min="0" max="100" class="form-control" formControlName="porcentaje">
+          </div>
+          <button type="submit" (click)="submiteducacion()" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

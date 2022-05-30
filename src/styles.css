@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Prata&family=Amatic+SC&family=Amita&family=Charm&family=Comic+Neue:ital@1&family=The+Nautigal&display=swap');
+/* font-family: 'Amita', cursive;
+font-family: 'Charm', cursive;
+font-family: 'Comic Neue', cursive;
+font-family: 'The Nautigal', cursive; */
+:root{
+    --alto-navbar:8vh;
+    --boton-seccion:6em;
+    --alto-botonera:calc(100vh - var(--alto-navbar) - 1vh)
+}
+.body
+{
+    display: grid;
+    grid-template-areas:
+    'barra barra barra'
+    'carta botonera botonera';
+    grid-auto-columns: 1fr;
+    max-width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.tab-pane{
+    max-height: var(--alto-botonera);
+    overflow:auto;
+}
+.navbar{
+    grid-area: barra;
+}
+.textonav{
+    color: gainsboro;
+    text-align: center;
+}
+#barra{
+    background-color: rgba(0,0,0,0.8);
+    max-height: var(--alto-navbar);
+}
+.d-flex{
+    grid-area:botonera;
+}
+.logo{
+    max-width: 2rem;
+}
+.logoar{
+    max-height: 2.9em;
+}
+.banner{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: -100;
+    filter: grayscale(100%) brightness(88%);
+    object-fit: cover;
+}
+.card{
+    backdrop-filter: blur(0.1rem);
+}
+.separador{
+    position:relative;
+    width:100%;
+    border:solid 1px darkmagenta;
+    bottom:0.8rem;
+}
+#progress{
+    background-color: whitesmoke;
+    border-radius: 5%;
+    box-shadow: black 0 0 0.1rem;
+}
+#v-pills-inicio-tab{
+    position: absolute;
+    bottom:1rem;
+    right: 1rem;
+    margin-top:4.5rem;
+    height: 2rem;
+    background-color: rgba(0,0,0,0.3);
+    color: aliceblue;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: left;
+}
+#v-pills-inicio{
+    margin: 2em;
+    }
+    #v-pills-educacion-tab{
+        background-color: gold;
+        box-shadow: black 0 0 0.3rem;
+    }
+    #v-pills-educacion-tab.active{
+        background-image: url("./assets/pop art1.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain; 
+        transform: scale3d(1.1,1.1,1.1);
+    }
+    #v-pills-educacion .card{
+        background-color:  rgba(255,255,255, 0.4);
+        border-bottom: solid gold 2px ;
+        border-radius: 0.5rem;
+        margin-bottom: 0.3rem;
+        color: black;
+    }
+    #v-pills-experiencia-tab{
+        background-color: whitesmoke;
+        box-shadow: black 0 0 0.3rem;
+    }
+    #v-pills-experiencia-tab.active{
+        background-image: url("./assets/ojo2.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: scale3d(1.1,1.1,1.1);
+    }
+    
+    #v-pills-experiencia .card{
+        background-color: rgba(255,255,255, 0.4) ;
+        border-bottom: solid whitesmoke 2px ;
+        border-radius: 0.5rem;
+        margin-bottom: 0.3rem;
+        color: black;
+    }
+    
+#v-pills-habilidad-tab{
+    background-color:darkorchid;
+    box-shadow: black 0 0 0.3rem;
+}
+#v-pills-habilidad-tab.active{
+    background-image: url("./assets/disney.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: scale3d(1.1,1.1,1.1);
+}
+#v-pills-habilidad .card{
+    background-color: rgba(0,0,0,0.1);
+    border-bottom: solid  darkorchid 2px ;
+    border-radius: 0.5rem;
+    margin-bottom: 0.3rem;
+    color: whitesmoke;
+}
+#v-pills-proyecto-tab{
+    background-color: rgb(63, 63, 63);
+    box-shadow: black 0 0 0.3rem;
+}
+#v-pills-proyecto-tab.active{
+    background-image: url("./assets/pixelart.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: scale3d(1.1,1.1,1.1);
+}
+#v-pills-proyecto .card{
+    background-color: rgba(0,0,0,0.1);
+    border-bottom: solid rgb(63, 63, 63) 2px ;
+    border-radius: 0.5rem;
+    margin-bottom: 0.1rem;
+    margin-top: 0.2rem;
+    margin-right: 1rem;
+    color: whitesmoke;
+}
+/* Fuentes */
+.amita{
+    font-family: 'Amita', cursive;
+    font-size: 2em;
+    text-align: left;
+    color: black;
+}
+.nautigal{
+    font-family: 'The Nautigal', cursive;
+    font-size: 5.5em;
+    text-align: right;
+    margin-bottom: 0%;
+    color: darkmagenta;
+    text-shadow: grey 0.5rem 0.5rem 0.5rem;
+}
+.charm{
+    font-family: 'Charm', cursive;
+    font-size: 2.5em;
+    margin-bottom: 0%;
+    color:black;
+    
+}
+.comic{
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.5em;
+    text-align: left;
+    color: black;
+}
+.amatic{
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.5em;
+    text-align: center;
+}
+.obrasfont{
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.5em;
+}
+
+
+

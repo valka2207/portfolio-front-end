@@ -1,0 +1,17 @@
+#botonera .btn-botonera{
+    position:relative;
+    left:calc(-0.5 * var(--boton-seccion));
+    height: var(--boton-seccion);
+    width: var(--boton-seccion);
+    border-radius: 50%;
+    margin-top:1rem;
+}
+.btn-botonera:hover{
+    transform: scale3d(1.1,1.1,1.1);
+}
+.v-pills{
+    padding-top: 0.6em;
+    margin-right: 0.6rem;
+    margin-top: 0.6rem;
+    width: 55vw;
+}

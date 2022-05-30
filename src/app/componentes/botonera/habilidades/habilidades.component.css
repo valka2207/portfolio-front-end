@@ -1,0 +1,12 @@
+
+#etiquetaHabilidades{
+    background-color: rgb(153, 50, 204, 0.9);
+    border-radius: 0.2rem;
+    font-family: 'Dosis', cursive;
+    font-size: 1.1rem;
+    color: whitesmoke;
+    text-align: center;
+    padding: 0.1rem;
+    box-shadow: black 0 0 0.2rem;
+    margin-bottom: 0.2rem;
+}

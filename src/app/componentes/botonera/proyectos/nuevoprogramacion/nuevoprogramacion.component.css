@@ -1,0 +1,9 @@
+#LogoProyecto{
+    width: 150px;
+    height: 150px;
+    margin: 0.5rem;
+}
+.programacion{
+    background-color: rgba(255,255,255, 0.9);
+    border-radius: 5%;
+}

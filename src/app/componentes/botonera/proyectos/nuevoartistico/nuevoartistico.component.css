@@ -1,0 +1,11 @@
+.carousel-item img{
+    height: 70vh;
+    object-fit: scale-down;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(1rem);
+}
+.carousel-caption{
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 1rem;
+    backdrop-filter: grayscale(100%);
+}
