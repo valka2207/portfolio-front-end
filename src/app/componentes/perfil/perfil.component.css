@@ -16,3 +16,8 @@
     margin-left: 2em;
     box-shadow: black 0 0 0.3rem;
 }
+.edit{
+    position: absolute;
+    top: 2rem;
+    right:6rem;
+}

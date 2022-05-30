@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { faEdit } from '@fortawesome/free-regular-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ProyectoA } from 'src/models/ProyectoA';
 
 @Component({
@@ -8,9 +11,33 @@ import { ProyectoA } from 'src/models/ProyectoA';
 })
 export class ObraComponent implements OnInit {
   @Input() obra:ProyectoA
-  constructor() { }
+  @Output() eliminar:EventEmitter<number>=new EventEmitter;
+  formulario:FormGroup
+  faEdit=faEdit
+  faEliminar=faTrash
+  constructor() {
+    this.formulario=new FormGroup({
+      url:new FormControl ('', Validators.required),
+      titulo:new FormControl ('', Validators.required),
+      descripcion:new FormControl ('', Validators.required)
+    })
+   }
 
   ngOnInit(): void {
   }
+  eliminarobra(): void{
+    this.eliminar.emit(this.obra.id);
+  }
 
+  editarobra(): void{
+    this.formulario.get('url')?.setValue(this.obra.url)
+    this.formulario.get('titulo')?.setValue(this.obra.titulo)
+    this.formulario.get('descripcion')?.setValue(this.obra.descripcion)
+  } 
+
+  submitobra(): void{
+    this.obra.url=this.formulario.get('url')?.value
+    this.obra.titulo=this.formulario.get('titulo')?.value
+    this.obra.descripcion=this.formulario.get('descripcion')?.value
+  }
 }

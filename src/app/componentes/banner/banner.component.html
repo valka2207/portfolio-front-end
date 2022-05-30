@@ -1,1 +1,23 @@
-<img class="banner" src="assets/herramientas3.jpeg" alt="">
+<div>
+    <img class="banner" [src]="urlbanner" alt="">
+    <button class="edit btn btn-dark" data-bs-toggle="modal" data-bs-target="#editbanner"><fa-icon [icon]="faEdit"></fa-icon></button>
+  </div>
+  <div class="modal fade" id="editbanner" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Banner</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">URL de la Foto</label>
+              <input type="text" class="form-control" #url>
+            </div>
+            <button type="submit" (click)="submitbanner(url.value)" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

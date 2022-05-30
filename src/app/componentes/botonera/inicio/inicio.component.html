@@ -1,9 +1,27 @@
 <p class="charm">Hola, mi nombre es:</p>
 <p class="nautigal">Anahí Carranza </p>
 <div class="separador"></div>
-<p class="comic">Soy estudiante de Artes Visuales y Full-Stack Developer jr.,
-  Elaboro composiciones artísticas para el público general, mostrando que no existen obstáculos para explorar la
-  creatividad, teniendo en cuenta los criterios visuales y el buen uso de las herramientas disponibles, incentivando a
-  desarrollar las habilidades y capacidades que existen dentro de cada persona.
-</p>
+<div>
+  <button class="edit btn btn-dark" data-bs-toggle="modal" data-bs-target="#editdesc"><fa-icon [icon]="faEdit"></fa-icon></button>
+<p class="comic">{{descripcion}}</p>
+</div>
 <p class="amita">Te invito a conocerme y descubrir las ilustraciones escondidas.</p>
+<div class="modal fade" id="editdesc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Descripcion</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Descripcion</label>
+            <textarea type="text" cols="40" rows="5" class="form-control" #desc></textarea>
+          </div>
+          <button type="submit" (click)="submitdesc(desc.value)" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+.edit{
+    position: absolute;
+    top: calc(var(--alto-navbar) + 2rem);
+    left:95vw;
+    z-index: 1000;
+}
