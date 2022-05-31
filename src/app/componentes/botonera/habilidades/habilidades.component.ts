@@ -1,4 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from 'src/app/services/login.service';
 import { Habilidades } from 'src/models/Habilidades';
 
 @Component({
@@ -7,6 +10,9 @@ import { Habilidades } from 'src/models/Habilidades';
   styleUrls: ['./habilidades.component.css']
 })
 export class HabilidadesComponent implements OnInit {
+  formulario:FormGroup
+faPlus=faPlus
+login:boolean=false;
   @Output() habilidad:Habilidades[]=[{id:1,
     titulo:"habilidad 1",
     descripcion:"tareas generales",
@@ -24,9 +30,18 @@ export class HabilidadesComponent implements OnInit {
   }
 ]
 
-  constructor() { }
+  constructor(private loginService:LoginService) {
+    this.formulario=new FormGroup({
+      titulo:new FormControl ('', Validators.required),
+      descripcion:new FormControl ('', Validators.required),
+      porcentaje:new FormControl ('', Validators.required),
+    })
+   }
 
   ngOnInit(): void {
+    this.loginService.subjectLogin.subscribe(log=>{
+      this.login=log;
+    })
   }
   eliminar(e:any):void{
     for(let i=0;i<this.habilidad.length;i++){
@@ -35,5 +50,11 @@ export class HabilidadesComponent implements OnInit {
       }
     }
   }
-
+  submithabilidad(): void{
+    let hab:Habilidades=new Habilidades
+    hab.titulo =this.formulario.get('titulo')?.value
+    hab.descripcion=this.formulario.get('descripcion')?.value
+    hab.porcentaje=this.formulario.get('porcentaje')?.value
+    this.habilidad.push(hab)
+  }
 }

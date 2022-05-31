@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-banner',
@@ -9,10 +10,14 @@ import { faEdit } from '@fortawesome/free-regular-svg-icons';
 export class BannerComponent implements OnInit {
   faEdit=faEdit
   urlbanner:string="assets/herramientas3.jpeg"
+  login:boolean=false;
 
-  constructor() { }
+  constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
+    this.loginService.subjectLogin.subscribe(log=>{
+      this.login=log;
+    })
   }
   submitbanner(url:string){
     this.urlbanner=url

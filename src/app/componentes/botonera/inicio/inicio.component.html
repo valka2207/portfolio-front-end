@@ -2,7 +2,8 @@
 <p class="nautigal">Anahí Carranza </p>
 <div class="separador"></div>
 <div>
-  <button class="edit btn btn-dark" data-bs-toggle="modal" data-bs-target="#editdesc"><fa-icon [icon]="faEdit"></fa-icon></button>
+  <button *ngIf="login" class="edit btn btn-dark" data-bs-toggle="modal" data-bs-target="#editdesc">
+    <fa-icon [icon]="faEdit"></fa-icon></button>
 <p class="comic">{{descripcion}}</p>
 </div>
 <p class="amita">Te invito a conocerme y descubrir las ilustraciones escondidas.</p>

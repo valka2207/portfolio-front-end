@@ -1,6 +1,6 @@
 <div>
     <img class="banner" [src]="urlbanner" alt="">
-    <button class="edit btn btn-dark" data-bs-toggle="modal" data-bs-target="#editbanner"><fa-icon [icon]="faEdit"></fa-icon></button>
+    <button *ngIf="login" class="edit btn btn-dark" data-bs-toggle="modal" data-bs-target="#editbanner"><fa-icon [icon]="faEdit"></fa-icon></button>
   </div>
   <div class="modal fade" id="editbanner" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

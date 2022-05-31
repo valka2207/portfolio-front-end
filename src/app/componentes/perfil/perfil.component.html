@@ -1,7 +1,7 @@
 <div id="perfil" class="card">
   <div>
     <img id="imagen-perfil" [src]="urlperfil" class="card-img-top" alt="...">
-    <button class="edit btn btn-dark" data-bs-toggle="modal" data-bs-target="#editperfil"><fa-icon [icon]="faEdit"></fa-icon></button>
+    <button  *ngIf="login" class="edit btn btn-dark" data-bs-toggle="modal" data-bs-target="#editperfil"><fa-icon [icon]="faEdit"></fa-icon></button>
   </div>
     <div class="card-body">
       <h5 class="card-title amatic" >Autorretrato</h5>
@@ -22,9 +22,9 @@
         <form>
           <div class="mb-3">
             <label class="form-label">URL de la Foto</label>
-            <input type="text" class="form-control" #url>
+            <input type="text" class="form-control" #urlp>
           </div>
-          <button type="submit" (click)="submitperfil(url.value)" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
+          <button type="submit" (click)="submitperfil(urlp.value)" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
         </form>
       </div>
     </div>

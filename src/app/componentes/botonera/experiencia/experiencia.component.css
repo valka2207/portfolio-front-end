@@ -10,3 +10,8 @@
     box-shadow: black 0 0 0.2rem;
     margin-bottom: 0.2rem;
 }
+.agregar{
+    position: absolute;
+    right: 3rem;
+    z-index: 20;
+}

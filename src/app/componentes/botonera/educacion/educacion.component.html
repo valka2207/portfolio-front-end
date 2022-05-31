@@ -1,2 +1,43 @@
-<div id="etiquetaEducacion" > EDUCACION </div>
+<div id="etiquetaEducacion" > 
+    EDUCACION          
+     <button *ngIf="login" type="button" class="agregar btn btn-dark" data-bs-toggle="modal" data-bs-target="#agregaredu">
+         <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+</div>
  <app-nuevaeducacion *ngFor="let ed of educacion" [educacion]="ed" (eliminar)="eliminar($event)"></app-nuevaeducacion>
+<!-- Modal -->
+<div class="modal fade" id="agregaredu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar Educacion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formulario">
+            <div class="mb-3">
+              <label class="form-label">Institucion</label>
+              <input type="text" class="form-control" formControlName="institucion">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Fecha de inicio</label>
+              <input type="date" class="form-control" formControlName="fechadeinicio">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Fecha de egreso</label>
+              <input type="date" class="form-control" formControlName="fechadeegreso">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Titulo</label>
+              <input type="text" class="form-control" formControlName="titulo">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Porcentaje</label>
+              <input type="number" min="0" max="100" class="form-control" formControlName="porcentaje">
+            </div>
+            <button type="submit" (click)="submiteducacion()" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

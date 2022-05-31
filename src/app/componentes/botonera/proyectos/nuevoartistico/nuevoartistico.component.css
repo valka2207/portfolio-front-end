@@ -9,3 +9,8 @@
     border-radius: 1rem;
     backdrop-filter: grayscale(100%);
 }
+.agregar{
+    position: absolute;
+    right: 3rem;
+    z-index: 20;
+}

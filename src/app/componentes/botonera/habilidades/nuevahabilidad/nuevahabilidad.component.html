@@ -5,9 +5,9 @@
       <div class="d-flex justify-content-between card-header">
         <h5 class="titulo">{{habilidad.titulo}}</h5> 
         <div class="d-flex justify-content-end">
-        <button  type="button" class="btn btn-dark" data-bs-toggle="modal" attr.data-bs-target="#editHab{{habilidad.id}}" (click)="editarhabilidad()"><fa-icon [icon]="faEdit"></fa-icon>
+        <button *ngIf="login" type="button" class="btn btn-dark" data-bs-toggle="modal" attr.data-bs-target="#editHab{{habilidad.id}}" (click)="editarhabilidad()"><fa-icon [icon]="faEdit"></fa-icon>
         </button>
-        <button (click)="eliminarhabilidad()" class="justify-self-end btn btn-light"><fa-icon [icon]="faEliminar"></fa-icon></button>
+        <button *ngIf="login" (click)="eliminarhabilidad()" class="justify-self-end btn btn-light"><fa-icon [icon]="faEliminar"></fa-icon></button>
       </div>
       </div>
         <div class="card-body">

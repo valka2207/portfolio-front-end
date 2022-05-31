@@ -1,2 +1,44 @@
-<div id="etiquetaExperiencia" > EXPERIENCIA</div>
+<div id="etiquetaExperiencia" > 
+        EXPERIENCIA
+        <button *ngIf="login" type="button" class="agregar btn btn-dark" data-bs-toggle="modal" data-bs-target="#agregarexp"><fa-icon [icon]="faPlus"></fa-icon></button>
+</div>
         <app-nuevaexperiencia *ngFor="let ex of experiencia" [experiencia]="ex" (eliminar)="eliminar($event)"></app-nuevaexperiencia>
+        <div class="modal fade" id="agregarexp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Editar Experiencia</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form [formGroup]="formulario">
+                        <div class="mb-3">
+                          <label class="form-label">Empresa</label>
+                          <input type="text" class="form-control" formControlName="empresa">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Fecha de Inicio</label>
+                          <input type="date" class="form-control" formControlName="fechadeinicio">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Fecha de Egreso</label>
+                          <input type="date" class="form-control" formControlName="fechadeegreso">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Puesto</label>
+                          <input type="text" class="form-control" formControlName="puesto">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Descripción</label>
+                          <input type="text" class="form-control" formControlName="descripcion">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">URL del logo</label>
+                          <input type="text" class="form-control" formControlName="url">
+                        </div>       
+                        <button type="submit" (click)="submitexperiencia()" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>

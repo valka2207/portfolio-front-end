@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit {
-
-  constructor() { }
+  login:boolean=false;
+  constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
+    this.loginService.subjectLogin.subscribe(log=>{
+      this.login=log;
+    })
   }
-
+  logout(): void{
+    this.loginService.setLogout()
+  }
 }

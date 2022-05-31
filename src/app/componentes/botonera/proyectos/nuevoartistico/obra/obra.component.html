@@ -3,9 +3,9 @@
       <div class="d-flex justify-content-center">
         <h5 class="titulo">{{obra.titulo}}</h5> 
         <div class="d-flex justify-content-end botonEdit">
-        <button  type="button" class="btn btn-dark" data-bs-toggle="modal" attr.data-bs-target="#editobra{{obra.id}}" (click)="editarobra()"><fa-icon [icon]="faEdit"></fa-icon>
+        <button *ngIf="login" type="button" class="btn btn-dark" data-bs-toggle="modal" attr.data-bs-target="#editobra{{obra.id}}" (click)="editarobra()"><fa-icon [icon]="faEdit"></fa-icon>
         </button>
-        <button (click)="eliminarobra()" class="justify-self-end btn btn-light"><fa-icon [icon]="faEliminar"></fa-icon></button>
+        <button *ngIf="login" (click)="eliminarobra()" class="justify-self-end btn btn-light"><fa-icon [icon]="faEliminar"></fa-icon></button>
       </div>
       </div>
       <p>{{obra.descripcion}}</p>

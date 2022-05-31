@@ -15,7 +15,8 @@
           </div>
           
         </form>
-        <button class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target="#test">Login</button>
+        <button *ngIf="!login" class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target="#test">Login</button>
+        <button *ngIf="login" class="btn btn-dark me-2" (click)="logout()">Logout</button>
       </div>
     </div>
 </nav>

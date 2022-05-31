@@ -1,4 +1,9 @@
-<div id="etiquetaProyecto" > PROYECTOS </div>
+<div id="etiquetaProyecto" >
+   PROYECTOS 
+   <button *ngIf="login" type="button" class="agregar btn btn-dark" data-bs-toggle="modal" data-bs-target="#agregarPP">
+              <fa-icon [icon]="faPlus"></fa-icon>
+   </button>
+  </div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="programación-tab" data-bs-toggle="tab" data-bs-target="#programación" type="button" role="tab" aria-controls="programación" aria-selected="true">Programación</button>
@@ -16,5 +21,32 @@
           <!-- Arte -->
           <div class="tab-pane fade" id="Arte" role="tabpanel" aria-labelledby="Arte-tab">
             <app-nuevoartistico></app-nuevoartistico>
+          </div>
+        </div>
+        <div class="modal fade" id="agregarPP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Proyecto programacion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="formulario">
+                  <div class="mb-3">
+                    <label class="form-label">Titulo</label>
+                    <input type="text" class="form-control" formControlName="titulo">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Descripcion</label>
+                    <input type="text" class="form-control" formControlName="descripcion">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">URL del Logo</label>
+                    <input type="text" class="form-control" formControlName="url">
+                  </div>
+                  <button type="submit" (click)="submitprogramacion()" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>

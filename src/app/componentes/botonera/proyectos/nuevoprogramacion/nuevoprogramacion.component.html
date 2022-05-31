@@ -7,11 +7,11 @@
         <div class="d-flex justify-content-between card-header">
           <h5 class="titulo">{{programacion.titulo}}</h5>
           <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-dark" data-bs-toggle="modal" attr.data-bs-target="#editPP{{programacion.id}}"
+            <button *ngIf="login" type="button" class="btn btn-dark" data-bs-toggle="modal" attr.data-bs-target="#editPP{{programacion.id}}"
               (click)="editarprogramacion()">
               <fa-icon [icon]="faEdit"></fa-icon>
             </button>
-            <button (click)="eliminarprogramacion()" class="justify-self-end btn btn-light">
+            <button *ngIf="login" (click)="eliminarprogramacion()" class="justify-self-end btn btn-light">
               <fa-icon [icon]="faEliminar"></fa-icon>
             </button>
           </div>

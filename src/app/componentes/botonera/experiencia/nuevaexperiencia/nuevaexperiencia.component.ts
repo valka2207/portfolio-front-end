@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from 'src/app/services/login.service';
 import { Experiencia } from 'src/models/Experiencia';
 
 @Component({
@@ -15,7 +16,8 @@ export class NuevaexperienciaComponent implements OnInit {
   formulario:FormGroup
   faEdit=faEdit
   faEliminar=faTrash
-  constructor() { 
+  login:boolean=false;
+  constructor(private loginService:LoginService) { 
     this.formulario=new FormGroup({
       url:new FormControl ('', Validators.required),
       empresa:new FormControl ('', Validators.required),
@@ -27,6 +29,10 @@ export class NuevaexperienciaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loginService.subjectLogin.subscribe(log=>{
+      this.login=log;
+    })
+    this.login=this.loginService.getLogin()
   }
   eliminarexperiencia(): void{
     this.eliminar.emit(this.experiencia.id);
