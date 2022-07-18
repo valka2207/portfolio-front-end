@@ -36,6 +36,7 @@ export class ExperienciaComponent implements OnInit {
     })
   }
   eliminar(e:any):void{
+    this.apiService.delExperiencia(e);
     for(let i=0;i<this.experiencia.length;i++){
       if(this.experiencia[i].id==e){
         this.experiencia.splice(i,1);
@@ -51,6 +52,7 @@ export class ExperienciaComponent implements OnInit {
     exp.puesto=this.formulario.get('puesto')?.value
     exp.descripcion=this.formulario.get('descripcion')?.value
     this.experiencia.push(exp)
+    this.apiService.postExperiencia(exp)
   }
 
 }

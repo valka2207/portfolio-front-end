@@ -34,6 +34,7 @@ login:boolean=false;
     this.apiService.getHabilidades();
   }
   eliminar(e:any):void{
+    this.apiService.delHabilidad(e)
     for(let i=0;i<this.habilidad.length;i++){
       if(this.habilidad[i].id==e){
         this.habilidad.splice(i,1);
@@ -46,5 +47,6 @@ login:boolean=false;
     hab.descripcion=this.formulario.get('descripcion')?.value
     hab.porcentaje=this.formulario.get('porcentaje')?.value
     this.habilidad.push(hab)
+    this.apiService.postHabilidad(hab)
   }
 }

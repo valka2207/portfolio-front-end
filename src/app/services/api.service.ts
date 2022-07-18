@@ -31,7 +31,7 @@ export class ApiService {
      });
    }
    delEducacion(id:number){
-     this.apiService.delete(this.springBootUrl+'/del/educacion?id='+id);
+     this.apiService.delete(this.springBootUrl+'/del/educacion?id='+id).subscribe();
    }
    postEducacion(educacion:Educacion){
      this.apiService.post(this.springBootUrl+'/new/educacion',educacion).subscribe();
@@ -45,7 +45,7 @@ export class ApiService {
     });
   }
   delExperiencia(id:number){
-    this.apiService.delete(this.springBootUrl+'/del/experiencia?id='+id);
+    this.apiService.delete(this.springBootUrl+'/del/experiencia?id='+id).subscribe();
   }
   postExperiencia(experiencia:Experiencia){
     this.apiService.post(this.springBootUrl+'/new/experiencia',experiencia).subscribe();
@@ -59,7 +59,7 @@ export class ApiService {
     });
   }
   delHabilidad(id:number){
-    this.apiService.delete(this.springBootUrl+'/del/habilidad?id='+id);
+    this.apiService.delete(this.springBootUrl+'/del/habilidad?id='+id).subscribe();
   }
   postHabilidad(habilidad:Habilidades){
     this.apiService.post(this.springBootUrl+'/new/habilidad',habilidad).subscribe();
@@ -74,7 +74,7 @@ export class ApiService {
     });
   }
   delProyectoA(id:number){
-    this.apiService.delete(this.springBootUrl+'/del/artistico?id='+id);
+    this.apiService.delete(this.springBootUrl+'/del/artistico?id='+id).subscribe();
   }
   postProyectoA(artistico:ProyectoA){
     this.apiService.post(this.springBootUrl+'/new/artistico',artistico).subscribe();
@@ -87,7 +87,7 @@ export class ApiService {
     });
   }
   delProgramacion(id:number){
-    this.apiService.delete(this.springBootUrl+'/del/programacion?id='+id);
+    this.apiService.delete(this.springBootUrl+'/del/programacion?id='+id).subscribe();
   }
   postProgramacion(programacion:Programacion){
     this.apiService.post(this.springBootUrl+'/new/programacion',programacion).subscribe();
@@ -101,7 +101,7 @@ export class ApiService {
     });
   }
   delUsuario(id:number){
-    this.apiService.delete(this.springBootUrl+'/del/usuario?id='+id);
+    this.apiService.delete(this.springBootUrl+'/del/usuario?id='+id).subscribe();
   }
   postUsuario( usuario:Usuario){
     this.apiService.post(this.springBootUrl+'/new/usuario', usuario).subscribe();

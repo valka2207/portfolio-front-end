@@ -34,6 +34,7 @@ login:boolean=false
     })
   }
   eliminar(e:any):void{
+    this.apiService.delProgramacion(e)
     for(let i=0;i<this.programacion.length;i++){
       if(this.programacion[i].id==e){
         this.programacion.splice(i,1);
@@ -46,5 +47,6 @@ login:boolean=false
     prog.descripcion=this.formulario.get('descripcion')?.value
     prog.url=this.formulario.get('url')?.value
     this.programacion.push(prog)
+    this.apiService.postProgramacion(prog)
   }
 }

@@ -34,6 +34,7 @@ export class NuevoartisticoComponent implements OnInit {
     })
   }
   eliminar(e:any):void{
+    this.apiService.delProyectoA(e)
     for(let i=0;i<this.obras.length;i++){
       if(this.obras[i].id==e){
         this.obras.splice(i,1);
@@ -46,5 +47,6 @@ export class NuevoartisticoComponent implements OnInit {
     ob.titulo=this.formulario.get('titulo')?.value
     ob.descripcion=this.formulario.get('descripcion')?.value
     this.obras.push(ob)
+    this.apiService.postProyectoA(ob)
   }
 }

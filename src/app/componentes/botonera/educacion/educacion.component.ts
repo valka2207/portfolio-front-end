@@ -46,9 +46,11 @@ export class EducacionComponent implements OnInit {
     edu.titulo=this.formulario.get('titulo')?.value
     edu.porcentaje=this.formulario.get('porcentaje')?.value
     this.educacion.push(edu)
+    this.apiService.postEducacion(edu);
   }
 
   eliminar(e:any):void{
+    this.apiService.delEducacion(e);
     for(let i=0;i<this.educacion.length;i++){
       if(this.educacion[i].id==e){
         this.educacion.splice(i,1);
