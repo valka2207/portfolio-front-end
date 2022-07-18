@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ApiService } from 'src/app/services/api.service';
 import { LoginService } from 'src/app/services/login.service';
 import { Programacion } from 'src/models/ProyectoP';
 
@@ -17,7 +18,7 @@ formulario:FormGroup
 faEdit=faEdit
 faEliminar=faTrash
 login:boolean=false;
-  constructor(private loginService:LoginService) {
+  constructor(private loginService:LoginService, private apiService:ApiService) {
     this.formulario=new FormGroup({
       titulo:new FormControl ('', Validators.required),
       descripcion:new FormControl ('', Validators.required),
@@ -45,6 +46,7 @@ login:boolean=false;
     this.programacion.titulo =this.formulario.get('titulo')?.value
     this.programacion.descripcion=this.formulario.get('descripcion')?.value
     this.programacion.url=this.formulario.get('url')?.value
+    this.apiService.postProgramacion(this.programacion)
   }
 
 }

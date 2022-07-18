@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ApiService } from 'src/app/services/api.service';
 import { LoginService } from 'src/app/services/login.service';
 import { Educacion } from 'src/models/Educacion';
 
@@ -17,7 +18,7 @@ export class NuevaeducacionComponent implements OnInit {
   faEdit=faEdit
   faEliminar=faTrash
   login:boolean=false;
-  constructor(private loginService:LoginService) {
+  constructor(private loginService:LoginService, private apiService:ApiService) {
     this.formulario=new FormGroup({
       institucion:new FormControl ('', Validators.required),
       fechadeinicio:new FormControl ('', Validators.required),
@@ -52,6 +53,7 @@ export class NuevaeducacionComponent implements OnInit {
     this.educacion.fechadeegreso=this.formulario.get('fechadeegreso')?.value
     this.educacion.titulo=this.formulario.get('titulo')?.value
     this.educacion.porcentaje=this.formulario.get('porcentaje')?.value
+    this.apiService.postEducacion(this.educacion);
   }
 
 }

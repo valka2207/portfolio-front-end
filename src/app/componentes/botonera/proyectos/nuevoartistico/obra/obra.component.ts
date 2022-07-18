@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ApiService } from 'src/app/services/api.service';
 import { LoginService } from 'src/app/services/login.service';
 import { ProyectoA } from 'src/models/ProyectoA';
 
@@ -17,7 +18,7 @@ export class ObraComponent implements OnInit {
   faEdit=faEdit
   faEliminar=faTrash
   login:boolean=false;
-  constructor(private loginService:LoginService) {
+  constructor(private loginService:LoginService, private apiService:ApiService) {
     this.formulario=new FormGroup({
       url:new FormControl ('', Validators.required),
       titulo:new FormControl ('', Validators.required),
@@ -45,5 +46,6 @@ export class ObraComponent implements OnInit {
     this.obra.url=this.formulario.get('url')?.value
     this.obra.titulo=this.formulario.get('titulo')?.value
     this.obra.descripcion=this.formulario.get('descripcion')?.value
+    this.apiService.postProyectoA(this.obra)
   }
 }

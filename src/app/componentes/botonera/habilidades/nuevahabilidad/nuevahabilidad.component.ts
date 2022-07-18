@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ApiService } from 'src/app/services/api.service';
 import { LoginService } from 'src/app/services/login.service';
 import { Habilidades } from 'src/models/Habilidades';
 
@@ -17,7 +18,7 @@ formulario:FormGroup
 faEdit=faEdit
 faEliminar=faTrash
 login:boolean=false;
-  constructor(private loginService:LoginService) {
+  constructor(private loginService:LoginService, private apiService:ApiService) {
     this.formulario=new FormGroup({
       titulo:new FormControl ('', Validators.required),
       descripcion:new FormControl ('', Validators.required),
@@ -28,6 +29,7 @@ login:boolean=false;
     this.loginService.subjectLogin.subscribe(log=>{
       this.login=log;
     })
+    this.login=this.loginService.getLogin();
   }
   eliminarhabilidad(): void{
     this.eliminar.emit(this.habilidad.id);
@@ -43,6 +45,7 @@ login:boolean=false;
     this.habilidad.titulo =this.formulario.get('titulo')?.value
     this.habilidad.descripcion=this.formulario.get('descripcion')?.value
     this.habilidad.porcentaje=this.formulario.get('porcentaje')?.value
+    this.apiService.postHabilidad(this.habilidad)
   }
 
 }
