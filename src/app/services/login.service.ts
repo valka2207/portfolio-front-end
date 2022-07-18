@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class LoginService {
   private password:string="carranza"
   subjectLogin:Subject<boolean>=new Subject;
 
-  constructor() { }
+  constructor(private apiService:ApiService) { }
 
   getLogin():boolean{
     return this.login;

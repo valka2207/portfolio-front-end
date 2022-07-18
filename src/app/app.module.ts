@@ -23,6 +23,7 @@ import { NuevoartisticoComponent } from './componentes/botonera/proyectos/nuevoa
 import { ObraComponent } from './componentes/botonera/proyectos/nuevoartistico/obra/obra.component';
 import { FormularioeduComponent } from './componentes/botonera/educacion/formularioedu/formularioedu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

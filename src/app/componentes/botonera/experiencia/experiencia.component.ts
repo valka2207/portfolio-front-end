@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ApiService } from 'src/app/services/api.service';
 import { LoginService } from 'src/app/services/login.service';
 import { Experiencia } from 'src/models/Experiencia';
 
@@ -13,30 +14,9 @@ export class ExperienciaComponent implements OnInit {
   formulario:FormGroup
   faPlus=faPlus
   login:boolean=false;
-  @Output() experiencia:Experiencia[]=[{id:1,
-    url:"",
-    empresa:"Minix - Salon de juego",
-    puesto:"Animadora de eventos",
-    fechadeinicio:"2018",
-    fechadeegreso:"2019",
-    descripcion:"tareas generales"
-  },
-    {id:2,
-      url:"assets/casimiro.png",
-      empresa:"Casimiro - Restaurant",
-      puesto:"Animadora de eventos",
-      fechadeinicio:"2016",
-      fechadeegreso:"2017",
-      descripcion:"breve descripcion"    
-    },
-      {id:3,
-        url:"assets/logo-mostaza-.jpg",
-        empresa:"Mostaza S.A.",
-        puesto:"Atencion al publico",
-        fechadeinicio:"2015",
-        fechadeegreso:"2016",
-        descripcion:"tareas generales"}];
-  constructor(private loginService:LoginService) {
+  @Output() experiencia:Experiencia[];
+  
+  constructor(private loginService:LoginService, private apiService:ApiService) {
     this.formulario=new FormGroup({
       url:new FormControl ('', Validators.required),
       empresa:new FormControl ('', Validators.required),
@@ -50,6 +30,9 @@ export class ExperienciaComponent implements OnInit {
   ngOnInit(): void {
     this.loginService.subjectLogin.subscribe(log=>{
       this.login=log;
+    })
+    this.apiService.experienciaSubject.subscribe(e=>{
+      this.experiencia=e;
     })
   }
   eliminar(e:any):void{

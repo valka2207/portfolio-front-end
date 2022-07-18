@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-botonera',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BotoneraComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
   }
-
+  educacion(){
+    this.apiService.getEducacion();
+  }
+  experiencia(){
+    this.apiService.getExperiencia();
+  }
+  habilidades(){
+    this.apiService.getHabilidades();
+  }
+  proyectos(){
+    this.apiService.getProgramacion();
+    this.apiService.getProyectoA();
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ApiService } from 'src/app/services/api.service';
 import { LoginService } from 'src/app/services/login.service';
 import { ProyectoA } from 'src/models/ProyectoA';
 
@@ -13,26 +14,9 @@ export class NuevoartisticoComponent implements OnInit {
   formulario:FormGroup
   faPlus=faPlus
   login:boolean=false;
-  @Output() obras:ProyectoA[]=[
-    {id:1,
-    url: "assets/Otoño.png",
-    titulo:"Serie; \"Sophia's\"",
-    descripcion:"ilustracion digital, tamaño: 15cm x 10cm" 
-  },
-  {id:2,
-    url: "assets/TP5_Carranza1_.jpg",
-    titulo:"Retrato: \"Olga\"",
-    descripcion:"ilustracion digital, tamaño: 15cm x 10cm" 
-  },
-  {id:3,
-    url: "assets/sirena-firma.jpg",
-    titulo:"Collage",
-    descripcion:"ilustracion digital, tamaño: 15cm x 10cm" 
-  }
+  @Output() obras:ProyectoA[]
 
-]
-
-  constructor(private loginService:LoginService) {
+  constructor(private loginService:LoginService, private apiService:ApiService) {
     this.formulario=new FormGroup({
       url:new FormControl ('', Validators.required),
       titulo:new FormControl ('', Validators.required),
@@ -45,6 +29,9 @@ export class NuevoartisticoComponent implements OnInit {
       this.login=log;
     })
     this.login=this.loginService.getLogin()
+    this.apiService.arteSubject.subscribe(e=>{
+      this.obras=e;
+    })
   }
   eliminar(e:any):void{
     for(let i=0;i<this.obras.length;i++){

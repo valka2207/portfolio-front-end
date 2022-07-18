@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ApiService } from 'src/app/services/api.service';
 import { LoginService } from 'src/app/services/login.service';
 import { Programacion } from 'src/models/ProyectoP';
 
@@ -10,16 +11,12 @@ import { Programacion } from 'src/models/ProyectoP';
   styleUrls: ['./proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit {
-  @Output() programacion:Programacion[]=[
-  {id:1,
-  url:"assets/logoproyec.png",
-  titulo:"Portfolio",
-  descripcion:"With supporting text below as a natural lead-in to additional content. segunda prueba aca vamos a escribir algo para probar definitivamente tiene que haber un minimo de caraceteres para realizarprobando probando"
-  }]
+  @Output() programacion:Programacion[]
+  
   formulario:FormGroup
 faPlus=faPlus
 login:boolean=false
-  constructor(private loginService:LoginService) { 
+  constructor(private loginService:LoginService, private apiService:ApiService) { 
     this.formulario=new FormGroup({
       titulo:new FormControl ('', Validators.required),
       descripcion:new FormControl ('', Validators.required),
@@ -31,6 +28,9 @@ login:boolean=false
     
     this.loginService.subjectLogin.subscribe(log=>{
       this.login=log;
+    })
+    this.apiService.programacionSubject.subscribe(e=>{
+      this.programacion=e;
     })
   }
   eliminar(e:any):void{

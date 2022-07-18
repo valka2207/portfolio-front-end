@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ApiService } from 'src/app/services/api.service';
 import { LoginService } from 'src/app/services/login.service';
 import { Habilidades } from 'src/models/Habilidades';
 
@@ -13,24 +14,9 @@ export class HabilidadesComponent implements OnInit {
   formulario:FormGroup
 faPlus=faPlus
 login:boolean=false;
-  @Output() habilidad:Habilidades[]=[{id:1,
-    titulo:"habilidad 1",
-    descripcion:"tareas generales",
-    porcentaje: 10
-  },
-  {id:2,
-    titulo:"habilidad 2",
-    descripcion:"tareas generales",
-    porcentaje: 30
-  },
-  {id:3,
-    titulo:"habilidad 3",
-    descripcion:"tareas generales",
-    porcentaje: 40
-  }
-]
+  @Output() habilidad:Habilidades[]
 
-  constructor(private loginService:LoginService) {
+  constructor(private loginService:LoginService, private apiService:ApiService) {
     this.formulario=new FormGroup({
       titulo:new FormControl ('', Validators.required),
       descripcion:new FormControl ('', Validators.required),
@@ -42,6 +28,10 @@ login:boolean=false;
     this.loginService.subjectLogin.subscribe(log=>{
       this.login=log;
     })
+    this.apiService.habilidadSubject.subscribe(e=>{
+      this.habilidad=e;
+    })
+    this.apiService.getHabilidades();
   }
   eliminar(e:any):void{
     for(let i=0;i<this.habilidad.length;i++){
