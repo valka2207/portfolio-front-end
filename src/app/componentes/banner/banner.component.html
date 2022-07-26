@@ -13,7 +13,7 @@
           <form>
             <div class="mb-3">
               <label class="form-label">URL de la Foto</label>
-              <input type="text" class="form-control" #url>
+              <input type="text" class="form-control" #url [value]="urlbanner">
             </div>
             <button type="submit" (click)="submitbanner(url.value)" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
           </form>

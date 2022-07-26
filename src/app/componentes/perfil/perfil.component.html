@@ -22,7 +22,7 @@
         <form>
           <div class="mb-3">
             <label class="form-label">URL de la Foto</label>
-            <input type="text" class="form-control" #urlp>
+            <input type="text" class="form-control" #urlp [value]="urlperfil">
           </div>
           <button type="submit" (click)="submitperfil(urlp.value)" class="btn btn-dark" data-bs-dismiss="modal">Aceptar</button>
         </form>
