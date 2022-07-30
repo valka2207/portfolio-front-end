@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class BotoneraComponent implements OnInit {
 
+  faArrow=faCircleArrowUp
   constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {

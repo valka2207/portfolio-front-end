@@ -12,7 +12,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  springBootUrl:string = 'http://localhost:8080'
+  springBootUrl:string = 'https://ac-portfolio-backedn.herokuapp.com/'
 
   educacionSubject:Subject<Educacion[]>=new Subject;
   experienciaSubject:Subject<Experiencia[]>=new Subject;
